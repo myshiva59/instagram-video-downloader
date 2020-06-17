@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Video Downloader</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="font-mono">
+    <header>
+      <div class="bg-blue-700 h-20 text-center">
+        <div class="pt-3 pb-5">
+          <img
+            class="inline-block"
+            src="https://img.icons8.com/bubbles/50/000000/instagram.png"
+          />
+          <h1 class="inline-block text-gray-100 lg:text-4xl text-2xl">
+            Instagram Video Downloader
+          </h1>
+        </div>
+      </div>
+    </header>
+    <section class="">
+      <div
+        class="mx-auto mt-5 p-5 container bg-orange-400 shadow-lg min-h-screen rounded"
+      >
+        <div class="mt-10">
+          <div class="w-full max-w-xs mx-auto">
+            <form
+              class="bg-orange-200 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+              method="POST"
+              action="/videolink"
+            >
+              <label class="block text-black text-lg font-bold mb-2" for="link"
+                >Link</label
+              >
+              <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="text"
+                name="link"
+                id="link"
+              />
+              <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3"
+                type="submit"
+              >
+                submit
+              </button>
+            </form>
+            <p class="text-center text-black text-xs">
+              &copy;2020 Instagram Video Downloader. All rights reserved.
+            </p>
+          </div>
+        </div>
+        <% if(hasVideo){ %>
+        <div class="mx-auto mt-5">
+          <video
+            class="mx-auto shadow-lg p-5 bg-orange-200 rounded"
+            width="640"
+            height="480"
+            controls
+          >
+            <source src="<%= urlArry %>" type="video/mp4" />
+          </video>
+          <div class="mt-10 text-center">
+            <button
+              class="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mt-3 mx-auto"
+            >
+              <a style="text-decoration: none;" href="<%= urlArry %>" download
+                ><img
+                  class="inline-block"
+                  src="https://img.icons8.com/fluent/48/000000/download.png"
+                />Download</a
+              >
+            </button>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </section>
+  </body>
+</html>
